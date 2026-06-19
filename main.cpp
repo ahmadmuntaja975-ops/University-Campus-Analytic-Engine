@@ -4,6 +4,7 @@
 #include "course_ops.h"
 #include "attendance.h"
 #include "grades.h"
+#include "fee_tracker.h"
 
 using namespace std;
 
@@ -44,6 +45,9 @@ int main()
                 case 4:
                     gradesMenu();
                     break;
+                case 5:
+                    feeMenu();
+                    break;    
                 case 0:
                     cout << "\nProgram Closed.\n";
                     break;
