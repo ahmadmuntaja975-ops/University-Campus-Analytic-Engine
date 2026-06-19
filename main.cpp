@@ -2,6 +2,7 @@
 #include "filehandler.h"
 #include "student_ops.h"
 #include "course_ops.h"
+#include "attendance.h"
 
 using namespace std;
 
@@ -26,24 +27,27 @@ int main()
 
         cout << "\nEnter Choice: ";
         cin >> choice;
-
         switch(choice)
-        {
-            case 1:
-                studentMenu();
-                break;
+            {
+                case 1:
+                    studentMenu();
+                    break;
 
-            case 2:
-                courseMenu();
-                break;
+                case 2:
+                    courseMenu();
+                    break;
 
-            case 0:
-                cout << "\nProgram Closed.\n";
-                break;
+                case 3:
+                    attendanceMenu();
+                    break;
 
-            default:
-                cout << "\nModule Not Added Yet.\n";
-        }
+                case 0:
+                    cout << "\nProgram Closed.\n";
+                    break;
+
+                default:
+                    cout << "\nModule Not Added Yet.\n";
+            }
 
     } while(choice != 0);
 
