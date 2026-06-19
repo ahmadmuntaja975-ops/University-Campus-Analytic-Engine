@@ -90,11 +90,102 @@ void studentMenu()
             break;
 
         case 3:
-            updateStudent();
+            void updateStudent()
+            {
+                string searchRoll;
+                string rollNo, name, department;
+                float cgpa;
+
+                cout << "\nEnter Roll Number to Update: ";
+                cin >> searchRoll;
+
+                ifstream file("students.txt");
+                ofstream temp("temp.txt");
+
+                bool found = false;
+
+                while(file >> rollNo >> name >> department >> cgpa)
+                {
+                    if(rollNo == searchRoll)
+                    {
+                        found = true;
+
+                        cout << "\nEnter New Name: ";
+                        cin >> name;
+
+                        cout << "Enter New Department: ";
+                        cin >> department;
+
+                        cout << "Enter New CGPA: ";
+                        cin >> cgpa;
+
+                        temp << rollNo << " "
+                            << name << " "
+                            << department << " "
+                            << cgpa << endl;
+                    }
+                    else
+                    {
+                        temp << rollNo << " "
+                            << name << " "
+                            << department << " "
+                            << cgpa << endl;
+                    }
+                }
+
+                file.close();
+                temp.close();
+
+                remove("students.txt");
+                rename("temp.txt", "students.txt");
+
+                if(found)
+                    cout << "\nStudent Updated Successfully!\n";
+                else
+                    cout << "\nStudent Not Found!\n";
+            }
             break;
 
         case 4:
-            deleteStudent();
+            void deleteStudent()
+            {
+                string searchRoll;
+                string rollNo, name, department;
+                float cgpa;
+
+                cout << "\nEnter Roll Number to Delete: ";
+                cin >> searchRoll;
+
+                ifstream file("students.txt");
+                ofstream temp("temp.txt");
+
+                bool found = false;
+
+                while(file >> rollNo >> name >> department >> cgpa)
+                {
+                    if(rollNo == searchRoll)
+                    {
+                        found = true;
+                        continue;
+                    }
+
+                    temp << rollNo << " "
+                        << name << " "
+                        << department << " "
+                        << cgpa << endl;
+                }
+
+                file.close();
+                temp.close();
+
+                remove("students.txt");
+                rename("temp.txt", "students.txt");
+
+                if(found)
+                    cout << "\nStudent Deleted Successfully!\n";
+                else
+                    cout << "\nStudent Not Found!\n";
+            }
             break;
 
         default:
