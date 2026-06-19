@@ -1,6 +1,7 @@
 #include <iostream>
 #include "filehandler.h"
 #include "student_ops.h"
+#include "course_ops.h"
 
 using namespace std;
 
@@ -10,18 +11,41 @@ int main()
 
     int choice;
 
-    cout << "Campus Analytics Engine Started!" << endl;
-
-    cout << "\n1. Student Management";
-    cout << "\n0. Exit";
-
-    cout << "\n\nEnter Choice: ";
-    cin >> choice;
-
-    if(choice == 1)
+    do
     {
-        studentMenu();
-    }
+        cout << "\n------------------------------------\n";
+        cout << "    CAMPUS ANALYTICS ENGINE\n";
+        cout << "------------------------------------\n";
+        cout << "1. Student Management\n";
+        cout << "2. Course Management\n";
+        cout << "3. Attendance\n";
+        cout << "4. Grades\n";
+        cout << "5. Fee Tracker\n";
+        cout << "6. Reports\n";
+        cout << "0. Exit\n";
+
+        cout << "\nEnter Choice: ";
+        cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                studentMenu();
+                break;
+
+            case 2:
+                courseMenu();
+                break;
+
+            case 0:
+                cout << "\nProgram Closed.\n";
+                break;
+
+            default:
+                cout << "\nModule Not Added Yet.\n";
+        }
+
+    } while(choice != 0);
 
     return 0;
 }
