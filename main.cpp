@@ -3,6 +3,7 @@
 #include "student_ops.h"
 #include "course_ops.h"
 #include "attendance.h"
+#include "grades.h"
 
 using namespace std;
 
@@ -39,8 +40,10 @@ int main()
 
                 case 3:
                     attendanceMenu();
+                    break;    
+                case 4:
+                    gradesMenu();
                     break;
-
                 case 0:
                     cout << "\nProgram Closed.\n";
                     break;
