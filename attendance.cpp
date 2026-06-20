@@ -1,5 +1,6 @@
 #include "attendance.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -18,11 +19,49 @@ void attendanceMenu()
     switch(choice)
     {
         case 1:
-            markAttendance();
+            void markAttendance()
+            {
+                string rollNo, courseCode, status;
+
+                cout << "\nEnter Roll Number: ";
+                cin >> rollNo;
+
+                cout << "Enter Course Code: ";
+                cin >> courseCode;
+
+                cout << "Enter Status (Present/Absent): ";
+                cin >> status;
+
+                ofstream file("attendance.txt", ios::app);
+
+                file << rollNo << " "
+                    << courseCode << " "
+                    << status << endl;
+
+                file.close();
+
+                cout << "\nAttendance Marked Successfully!\n";
+            }
             break;
 
         case 2:
-            viewAttendance();
+            void viewAttendance()
+            {
+                string rollNo, courseCode, status;
+
+                ifstream file("attendance.txt");
+
+                cout << "\n===== ATTENDANCE RECORDS =====\n";
+
+                while(file >> rollNo >> courseCode >> status)
+                {
+                    cout << rollNo << " "
+                        << courseCode << " "
+                        << status << endl;
+                }
+
+                            file.close();
+            }
             break;
 
         default:
