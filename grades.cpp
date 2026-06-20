@@ -19,49 +19,11 @@ void gradesMenu()
     switch(choice)
     {
         case 1:
-            void addGrade()
-            {
-                string rollNo, courseCode, grade;
-
-                cout << "\nEnter Roll Number: ";
-                cin >> rollNo;
-
-                cout << "Enter Course Code: ";
-                cin >> courseCode;
-
-                cout << "Enter Grade: ";
-                cin >> grade;
-
-                ofstream file("grades.txt", ios::app);
-
-                file << rollNo << " "
-                    << courseCode << " "
-                    << grade << endl;
-
-                file.close();
-
-                cout << "\nGrade Added Successfully!\n";
-            }
+            addGrade();
             break;
 
         case 2:
-            void viewGrades()
-            {
-                string rollNo, courseCode, grade;
-
-                ifstream file("grades.txt");
-
-                cout << "\n===== GRADE RECORDS =====\n";
-
-                while(file >> rollNo >> courseCode >> grade)
-                {
-                    cout << rollNo << " "
-                        << courseCode << " "
-                        << grade << endl;
-                }
-
-                file.close();
-            }
+            viewGrades();
             break;
 
         default:
@@ -71,10 +33,42 @@ void gradesMenu()
 
 void addGrade()
 {
-    cout << "\nAdd Grade Function Called\n";
+    string rollNo, courseCode, grade;
+
+    cout << "\nEnter Roll Number: ";
+    cin >> rollNo;
+
+    cout << "Enter Course Code: ";
+    cin >> courseCode;
+
+    cout << "Enter Grade: ";
+    cin >> grade;
+
+    ofstream file("grades.txt", ios::app);
+
+    file << rollNo << " "
+         << courseCode << " "
+         << grade << endl;
+
+    file.close();
+
+    cout << "\nGrade Added Successfully!\n";
 }
 
 void viewGrades()
 {
-    cout << "\nView Grades Function Called\n";
+    string rollNo, courseCode, grade;
+
+    ifstream file("grades.txt");
+
+    cout << "\n===== GRADE RECORDS =====\n";
+
+    while(file >> rollNo >> courseCode >> grade)
+    {
+        cout << rollNo << " "
+             << courseCode << " "
+             << grade << endl;
+    }
+
+    file.close();
 }

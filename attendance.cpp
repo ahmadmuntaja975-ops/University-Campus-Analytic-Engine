@@ -19,49 +19,11 @@ void attendanceMenu()
     switch(choice)
     {
         case 1:
-            void markAttendance()
-            {
-                string rollNo, courseCode, status;
-
-                cout << "\nEnter Roll Number: ";
-                cin >> rollNo;
-
-                cout << "Enter Course Code: ";
-                cin >> courseCode;
-
-                cout << "Enter Status (Present/Absent): ";
-                cin >> status;
-
-                ofstream file("attendance.txt", ios::app);
-
-                file << rollNo << " "
-                    << courseCode << " "
-                    << status << endl;
-
-                file.close();
-
-                cout << "\nAttendance Marked Successfully!\n";
-            }
+            markAttendance();
             break;
 
         case 2:
-            void viewAttendance()
-            {
-                string rollNo, courseCode, status;
-
-                ifstream file("attendance.txt");
-
-                cout << "\n===== ATTENDANCE RECORDS =====\n";
-
-                while(file >> rollNo >> courseCode >> status)
-                {
-                    cout << rollNo << " "
-                        << courseCode << " "
-                        << status << endl;
-                }
-
-                            file.close();
-            }
+            viewAttendance();
             break;
 
         default:
@@ -71,10 +33,42 @@ void attendanceMenu()
 
 void markAttendance()
 {
-    cout << "\nMark Attendance Function Called\n";
+    string rollNo, courseCode, status;
+
+    cout << "\nEnter Roll Number: ";
+    cin >> rollNo;
+
+    cout << "Enter Course Code: ";
+    cin >> courseCode;
+
+    cout << "Enter Status (Present/Absent): ";
+    cin >> status;
+
+    ofstream file("attendance.txt", ios::app);
+
+    file << rollNo << " "
+         << courseCode << " "
+         << status << endl;
+
+    file.close();
+
+    cout << "\nAttendance Marked Successfully!\n";
 }
 
 void viewAttendance()
 {
-    cout << "\nView Attendance Function Called\n";
+    string rollNo, courseCode, status;
+
+    ifstream file("attendance.txt");
+
+    cout << "\n===== ATTENDANCE RECORDS =====\n";
+
+    while(file >> rollNo >> courseCode >> status)
+    {
+        cout << rollNo << " "
+             << courseCode << " "
+             << status << endl;
+    }
+
+    file.close();
 }

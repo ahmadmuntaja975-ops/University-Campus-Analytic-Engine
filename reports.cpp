@@ -19,47 +19,11 @@ void reportsMenu()
     switch(choice)
     {
         case 1:
-            void generateStudentReport()
-            {
-                string rollNo, name, department;
-                float cgpa;
-
-                ifstream file("students.txt");
-
-                cout << "\n===== STUDENT REPORT =====\n";
-
-                while(file >> rollNo >> name >> department >> cgpa)
-                {
-                    cout << rollNo << " "
-                        << name << " "
-                        << department << " "
-                        << cgpa << endl;
-                }
-
-                file.close();
-            }
+            generateStudentReport();
             break;
 
         case 2:
-            
-void generateCourseReport()
-            {
-                string code, name;
-                int creditHours;
-
-                ifstream file("courses.txt");
-
-                cout << "\n===== COURSE REPORT =====\n";
-
-                while(file >> code >> name >> creditHours)
-                {
-                    cout << code << " "
-                        << name << " "
-                        << creditHours << endl;
-                }
-
-                file.close();
-            }
+            generateCourseReport();
             break;
 
         default:
@@ -69,10 +33,39 @@ void generateCourseReport()
 
 void generateStudentReport()
 {
-    cout << "\nStudent Report Function Called\n";
+    string rollNo, name, department;
+    float cgpa;
+
+    ifstream file("students.txt");
+
+    cout << "\n===== STUDENT REPORT =====\n";
+
+    while(file >> rollNo >> name >> department >> cgpa)
+    {
+        cout << rollNo << " "
+             << name << " "
+             << department << " "
+             << cgpa << endl;
+    }
+
+    file.close();
 }
 
 void generateCourseReport()
 {
-    cout << "\nCourse Report Function Called\n";
+    string code, name;
+    int creditHours;
+
+    ifstream file("courses.txt");
+
+    cout << "\n===== COURSE REPORT =====\n";
+
+    while(file >> code >> name >> creditHours)
+    {
+        cout << code << " "
+             << name << " "
+             << creditHours << endl;
+    }
+
+    file.close();
 }
